@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;  // Puedes cambiar el puerto si lo deseas
+const port = 3000;
 
 // Lista de tareas
 const tasks = [
@@ -16,6 +16,17 @@ const tasks = [
   },
   // Puedes agregar más tareas aquí
 ];
+
+// Requerir los enrutadores de vista y edición y pasar la lista de tareas como parámetro
+const listViewRouter = require('./list-view-router')(tasks);
+const editViewRouter = require('./list-edit-router')(tasks);
+
+// Middleware para procesar el cuerpo JSON de las solicitudes
+app.use(express.json());
+
+// Agregar los enrutadores al servidor
+app.use('/listas', listViewRouter);
+app.use('/editar', editViewRouter);
 
 // Ruta para obtener la lista de tareas en formato JSON
 app.get('/tasks', (req, res) => {
