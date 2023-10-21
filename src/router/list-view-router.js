@@ -35,13 +35,10 @@ module.exports = function (tasks) {
 // Función para validar el parámetro (personalízala según tus necesidades)
 function isValid(param) {
   // Aquí se puede definir los criterios de validación
-  if (param.length >= 5 && param.length <= 20) {
-    // Verificar si la longitud del parámetro está entre 5 y 20 caracteres
+  if (param.length >= 0 && param.length <= 20) {
+    // Verificar si la longitud del parámetro está entre 0 y 20 caracteres
     return true;
   }
-
-  // Agrega más criterios de validación según las necesidades
-  // Por ejemplo, verificar si el parámetro contiene solo caracteres alfanuméricos
 
   return false;
 }

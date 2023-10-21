@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const validateHTTPMethod = require('./http-method-validator'); // Importa el middleware
+const validateHTTPMethod = require('../middleware/http-method-validator'); // Importa el middleware
 
 module.exports = function (tasks) {
   // Middleware para manejar errores de solicitud POST y PUT
